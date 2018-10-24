@@ -1,27 +1,42 @@
-# Frontend
+# Hangman (frontend)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
-## Development server
+----
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**What is this?** 
 
-## Code scaffolding
+This is my Hangman app. Request by Mavrck.<br>
+-Thanks for the chance Brian.<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Check out the Back end code at https://github.com/willshepp28/hangman_backend
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```js
+ Express
+ Angular 6
+ Knex/ PostgreSQL
+ AWS - for deployment
 
-## Running end-to-end tests
+ 
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Api Used
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+    random-words - to generate random words
+```
+
+
+  ## Requirements
+
+  - [] When the game is started, the player is represented with an empty field for each letter in the word.
+  - [] When the player guesses a letter correctly, each field that represents that letter is filled with the letter
+  - [] When the player guesses a letter incorrectly, a piece of a gallows with a hanging man is drawn
+  - [] After 10 incorrect guesses, the game is over and the player lost.
+  - [] Thus, there should be 10 different states of the gallows to be drawn.
+  - [] If all fields are filled with their letter before 10 incorrect guesses, the player has won the game.
