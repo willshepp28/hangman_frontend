@@ -33,8 +33,10 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 ```
 
 
-### Signup
+## WireFrame
 
+
+### Signup
 ![Signup](https://s3.amazonaws.com/hangman-app/wireframe/Signup.png)
 
 
