@@ -36,17 +36,29 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 ## WireFrame
 
 
-### Signup
+#### Signup
 ![Signup](https://s3.amazonaws.com/hangman-app/wireframe/Signup.png)
 
-### Login
+#### Login
 ![Login](https://s3.amazonaws.com/hangman-app/wireframe/Login.png)
 
-### Home
+#### Home
 ![Home](https://s3.amazonaws.com/hangman-app/wireframe/Home.png)
 
-### Game/:id (Beginning of Game)
+#### Game/:id (Beginning of Game)
 ![Game/:id](https://s3.amazonaws.com/hangman-app/wireframe/Game__id.png)
+
+#### Game/:id (Mid Game)
+![Game/:id](https://s3.amazonaws.com/hangman-app/wireframe/Game__id+(+Mid+Game).png)
+
+#### Game/:id (When player wins)
+![Game/:id](https://s3.amazonaws.com/hangman-app/wireframe/Game__id+(+Won+).png)
+
+#### Game/:id (When player lost)
+![Game/:id](https://s3.amazonaws.com/hangman-app/wireframe/Game__id+(+Lost+)+.png)
+
+#### Account (players account)
+![Account](https://s3.amazonaws.com/hangman-app/wireframe/Account__id.png)
 
 
 
