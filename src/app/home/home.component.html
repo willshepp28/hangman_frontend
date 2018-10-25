@@ -1,5 +1,12 @@
-<div class="container">
+<div class="container d-flex flex-column align-items-center justify-content-center">
   <div class="row">
-    <h2>Hi, {{ username }}</h2>
+    <h1>Hi, {{ username }}</h1>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md"> 
+        <p class="grey">let the games begin...</p>
+        <button (click)="startGame()" type="button" class="btn hangman-lightBlueBtn ">Start Game</button>
+    </div>
   </div>
 </div>

@@ -26,13 +26,16 @@ export class HomeComponent implements OnInit {
     const token = this.decodeToken.getDecodedAccessToken(localStorage.getItem('token'));
     const tokenId = token.user[0].id;
 
-    console.log(tokenId);
-
     this.userService.getUser(tokenId)
       .subscribe(
         response => { console.log(response), this.username = response[0].username; },
         error => { console.log(error);}
       );
   }
+
+
+startGame(){
+  console.log("Starting game");
+}
 
 }

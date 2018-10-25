@@ -5,7 +5,9 @@
 * { box-sizing: border-box; }
 
 html {
+   
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -25,6 +27,8 @@ html {
 .grey {
     color: rgb(72, 72, 72) !important;
 }
+
+
 
 
 /* Nav Styles */
@@ -48,6 +52,11 @@ html {
 .hangman-bluebtn {
     background: #003C85;
     color: white;
+}
+
+.hangman-lightBlueBtn {
+    background: #7CB3FF;
+    color: black;
 }
 
 
