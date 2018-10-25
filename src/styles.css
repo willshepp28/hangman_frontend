@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* Global Styles */
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+/* Nav Styles */
+.nav-hangmanBlue {
+    background: #1678FF;
+    
+}
+
+.nav-hangmanBlue h1 {
+    color: white;
+}
+
+.nav-hangmanBlue a {
+    color: black;
+    text-decoration: none;
+}
