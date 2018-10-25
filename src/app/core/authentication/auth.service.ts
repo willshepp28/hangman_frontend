@@ -39,10 +39,20 @@ login(credentials) {
 |--------------------------------------------------------------------------
 */
   logout() {
-    localStorage.removeItem('id');
+    localStorage.removeItem("token");
     this.router.navigate(["/login"]);
   }
 
+
+/*
+|--------------------------------------------------------------------------
+| Checks to see if user is logged in
+| returns true or false based on answer
+|--------------------------------------------------------------------------
+*/
+isLoggedIn() {
+  return !!localStorage.getItem("token");
+}
 
 /*
 |--------------------------------------------------------------------------
