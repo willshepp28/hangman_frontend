@@ -44,7 +44,10 @@ export class LoginComponent implements OnInit {
      console.log(this.loginForm.value);
      this.authService.login(this.loginForm.value)
        .subscribe(
-         data => { this.router.navigate(["/home"]);
+         response => {
+           // set token, then redirect user to home page
+          localStorage.setItem("token", response.token);
+          this.router.navigate(["/home"]);
        },
        error => { console.log(error);
        });

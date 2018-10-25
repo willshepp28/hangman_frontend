@@ -18,6 +18,7 @@ import { GameComponent } from './game/game.component';
 import { AccountComponent } from './account/account.component';
 import { WonComponent } from './game/won/won/won.component';
 import { LossComponent } from './game/loss/loss/loss.component';
+import { AuthGuard } from './core/guards/auth-guard/auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { LossComponent } from './game/loss/loss/loss.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
