@@ -26,8 +26,12 @@ import { GameComponent } from './game/game.component';
 import { AccountComponent } from './account/account.component';
 import { WonComponent } from './game/won/won/won.component';
 import { LossComponent } from './game/loss/loss/loss.component';
+
+// Services
 import { TokenInterceptorService } from './core/interceptors/token-interceptor/token-interceptor.service';
 import { AuthService } from './core/authentication/auth.service';
+import { DecodeTokenService } from './core/helpers/decodeToken/decode-token.service';
+import { UserService } from './core/services/user/user.service';
 
 
 
@@ -49,7 +53,7 @@ import { AuthService } from './core/authentication/auth.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService,AuthGuard,{
+  providers: [AuthService,AuthGuard, DecodeTokenService, UserService,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
