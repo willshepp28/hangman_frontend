@@ -33,6 +33,11 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 ```
 
 
+## Color Scheme
+
+![Color Scheme](https://s3.amazonaws.com/hangman-app/color+scheme/colorpalette.png)
+
+
 ## WireFrame
 
 

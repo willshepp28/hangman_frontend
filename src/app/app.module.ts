@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
 import { ResultsComponent } from './results/results.component';
 import { PlayerStatisticsComponent } from './player-statistics/player-statistics.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PlayerStatisticsComponent } from './player-statistics/player-statistics
     HomeComponent,
     GameComponent,
     ResultsComponent,
-    PlayerStatisticsComponent
+    PlayerStatisticsComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

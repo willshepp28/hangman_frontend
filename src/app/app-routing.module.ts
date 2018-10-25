@@ -4,8 +4,8 @@ import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 import { HomeComponent } from "./home/home.component";
 import { GameComponent } from "./game/game.component";
-import { ResultsComponent } from "./results/results.component";
-import { PlayerStatisticsComponent } from "./player-statistics/player-statistics.component";
+import { AccountComponent } from "./account/account.component";
+
 
 // Components
 
@@ -29,8 +29,7 @@ const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "signup", component: SignupComponent },
     { path: "game/:id", component: GameComponent },
-    { path: "results", component: ResultsComponent },
-    { path: "player/:id/statistics", component: PlayerStatisticsComponent }
+    { path: "account/:id", component: AccountComponent }
 ];
 
 @NgModule({
