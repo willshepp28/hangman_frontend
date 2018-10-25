@@ -7,19 +7,30 @@
 
   <div class="row mt-3">
 
-    <form>
+     
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <!-- Error Messages -->
+        <div *ngIf="submitted && getFormControls.username.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="getFormControls.username.errors.required">Username is required</div>
+            <div *ngIf="getFormControls.username.errors.minlength">Username must be at least 4 characters</div>
+      </div>
+
+      <div *ngIf="submitted && getFormControls.password.errors" class="alert alert-danger" role="alert">
+          <div *ngIf="getFormControls.password.errors.required">Password is required</div>
+          <div *ngIf="getFormControls.password.errors.minlength">Password must be at least 5 characters</div>
+    </div>
+
+    
 
       <div class="form-group">
-        <input type="text" class="form-control" id="username" placeholder="Username">
+        <input type="text" class="form-control" placeholder="Username" formControlName="username">
       </div>
 
       <div class="form-group">
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password">
       </div>
-
-      <div class="form-group">
-          <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password">
-        </div>
 
       
       <button type="submit" class="btn hangman-bluebtn d-flex mx-auto">Submit</button>

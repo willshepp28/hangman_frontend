@@ -9,10 +9,23 @@
   
   <div class="row mt-3">    
   <div class="col-md">
-      <form class="form-inline" action="/action_page.php">
-        <input type="text" class="form-control mr-3" id="username" placeholder="username">
       
-        <input type="password" class="form-control mr-3" id="password" placeholder="password" >
+      <form class="form-inline" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+         <!-- Error Messages -->
+         <div *ngIf="submitted && getFormControls.username.errors" class="alert alert-danger" role="alert">
+                <div *ngIf="getFormControls.username.errors.required">Username is required</div>
+                <div *ngIf="getFormControls.username.errors.minlength">Username must be at least 4 characters</div>
+          </div>
+    
+          <div *ngIf="submitted && getFormControls.password.errors" class="alert alert-danger" role="alert">
+              <div *ngIf="getFormControls.password.errors.required">Password is required</div>
+              <div *ngIf="getFormControls.password.errors.minlength">Password must be at least 5 characters</div>
+        </div>
+    
+        <input type="text" class="form-control mr-3" formControlName="username" placeholder="username">
+      
+        <input type="password" class="form-control mr-3" formControlName="password" placeholder="password" >
         
         <button type="submit" class="btn hangman-bluebtn ">Submit</button>
       </form>

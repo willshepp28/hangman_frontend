@@ -76,7 +76,7 @@
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
-      true,
+      false,
       "check-open-brace",
       "check-catch",
       "check-else",
@@ -97,7 +97,7 @@
       "allow-null-check"
     ],
     "typedef-whitespace": [
-      true,
+      false,
       {
         "call-signature": "nospace",
         "index-signature": "nospace",
@@ -109,12 +109,12 @@
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
-      false,
-      "check-branch",
-      "check-decl",
-      "check-operator",
-      "check-separator",
-      "check-type"
+      false
+      // "check-branch",
+      // "check-decl",
+      // "check-operator",
+      // "check-separator",
+      // "check-type"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
