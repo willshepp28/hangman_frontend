@@ -5,17 +5,25 @@ import { NgModule } from '@angular/core';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 
+
+// Components
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { GameComponent } from './game/game.component';
+import { ResultsComponent } from './results/results.component';
+import { PlayerStatisticsComponent } from './player-statistics/player-statistics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    GameComponent,
+    ResultsComponent,
+    PlayerStatisticsComponent
   ],
   imports: [
     BrowserModule,

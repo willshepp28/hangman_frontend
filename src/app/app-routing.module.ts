@@ -1,5 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { LoginComponent } from "./login/login.component";
+import { SignupComponent } from "./signup/signup.component";
+import { HomeComponent } from "./home/home.component";
+import { GameComponent } from "./game/game.component";
+import { ResultsComponent } from "./results/results.component";
+import { PlayerStatisticsComponent } from "./player-statistics/player-statistics.component";
 
 // Components
 
@@ -18,7 +24,13 @@ import { RouterModule, Routes } from "@angular/router";
 
 // Routes
 const routes: Routes = [
-    { path: "", redirectTo: "/", pathMatch: "full" }
+    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "home", component: HomeComponent },
+    { path: "login", component: LoginComponent },
+    { path: "signup", component: SignupComponent },
+    { path: "game/:id", component: GameComponent },
+    { path: "results", component: ResultsComponent },
+    { path: "player/:id/statistics", component: PlayerStatisticsComponent }
 ];
 
 @NgModule({
