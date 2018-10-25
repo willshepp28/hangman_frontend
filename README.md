@@ -29,7 +29,13 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 
 ```
     random-words - to generate random words
+
 ```
+
+
+## WireFrame
+
+<img src="https://s3.amazonaws.com/hangman-app/wireframe/hangman-wireframe.png"> 
 
 
   ## Requirements
