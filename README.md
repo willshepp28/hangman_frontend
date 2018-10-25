@@ -39,6 +39,16 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 ### Signup
 ![Signup](https://s3.amazonaws.com/hangman-app/wireframe/Signup.png)
 
+### Login
+![Login](https://s3.amazonaws.com/hangman-app/wireframe/Login.png)
+
+### Home
+![Home](https://s3.amazonaws.com/hangman-app/wireframe/Home.png)
+
+### Game/:id (Beginning of Game)
+![Game/:id](https://s3.amazonaws.com/hangman-app/wireframe/Game__id.png)
+
+
 
   ## Requirements
 
