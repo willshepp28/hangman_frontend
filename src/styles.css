@@ -2,8 +2,19 @@
 
 
 /* Global Styles */
+* { box-sizing: border-box; }
+
 html {
     -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+/* Spacing Styles */
+.mt-25 {
+    margin-top: 25px;
 }
 
 
@@ -21,4 +32,12 @@ html {
 .nav-hangmanBlue a {
     color: black;
     text-decoration: none;
+}
+
+
+
+/* Button Styles */
+.hangman-bluebtn {
+    background: #003C85;
+    color: white;
 }
