@@ -33,6 +33,7 @@ import { AuthService } from './core/authentication/auth.service';
 import { DecodeTokenService } from './core/helpers/decodeToken/decode-token.service';
 import { UserService } from './core/services/user/user.service';
 import { GameSequenceService } from './core/services/game/game-sequence/game-sequence.service';
+import { GameService } from './core/services/game/game/game.service';
 
 
 
@@ -54,7 +55,7 @@ import { GameSequenceService } from './core/services/game/game-sequence/game-seq
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService,AuthGuard, DecodeTokenService, UserService, GameSequenceService,{
+  providers: [AuthService,AuthGuard, DecodeTokenService, UserService, GameSequenceService, GameService,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true

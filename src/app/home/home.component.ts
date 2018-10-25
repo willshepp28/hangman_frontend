@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 // Services
 import { DecodeTokenService } from '../core/helpers/decodeToken/decode-token.service';
 import { UserService } from '../core/services/user/user.service';
+import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private decodeToken: DecodeTokenService,
-    private userService: UserService
+    private userService: UserService,
+    private sequenceService: GameSequenceService
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,8 @@ export class HomeComponent implements OnInit {
 
 
 startGame(){
-  console.log("Starting game");
+  // redirects user to the game page
+  this.sequenceService.beginGame();
 }
 
 }

@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
 export class GameSequenceService {
 
   constructor(
-    private route: Router
+    private router: Router
   ) { }
 
 
 beginGame(){
-  
+  this.router.navigate(["/game/1"]);
 }
 }
 
