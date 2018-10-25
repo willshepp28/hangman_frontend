@@ -12,9 +12,9 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
-import { ResultsComponent } from './results/results.component';
-import { PlayerStatisticsComponent } from './player-statistics/player-statistics.component';
 import { AccountComponent } from './account/account.component';
+import { WonComponent } from './game/won/won/won.component';
+import { LossComponent } from './game/loss/loss/loss.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +23,9 @@ import { AccountComponent } from './account/account.component';
     LoginComponent,
     HomeComponent,
     GameComponent,
-    ResultsComponent,
-    PlayerStatisticsComponent,
-    AccountComponent
+    AccountComponent,
+    WonComponent,
+    LossComponent
   ],
   imports: [
     BrowserModule,
