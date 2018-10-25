@@ -9,6 +9,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 
+// Intercepotors
+// import { TokenInterceptorService } from './core/interceptors/token-interceptor/token-interceptor.service';
+
+
+// Guards
+import { AuthGuard } from './core/guards/auth-guard/auth-guard.guard';
+
+
 // Components
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -18,7 +26,10 @@ import { GameComponent } from './game/game.component';
 import { AccountComponent } from './account/account.component';
 import { WonComponent } from './game/won/won/won.component';
 import { LossComponent } from './game/loss/loss/loss.component';
-import { AuthGuard } from './core/guards/auth-guard/auth-guard.guard';
+import { TokenInterceptorService } from './core/interceptors/token-interceptor/token-interceptor.service';
+import { AuthService } from './core/authentication/auth.service';
+
+
 
 @NgModule({
   declarations: [
@@ -38,7 +49,12 @@ import { AuthGuard } from './core/guards/auth-guard/auth-guard.guard';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthService,AuthGuard,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

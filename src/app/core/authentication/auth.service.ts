@@ -42,4 +42,15 @@ login(credentials) {
     localStorage.removeItem('id');
     this.router.navigate(["/login"]);
   }
+
+
+/*
+|--------------------------------------------------------------------------
+| Gets token
+|--------------------------------------------------------------------------
+*/
+getToken() {
+  return localStorage.getItem('token');
+}
+
 }
