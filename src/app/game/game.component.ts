@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
+// Services
 import { GameService } from '../core/services/game/game/game.service';
 import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 
@@ -11,16 +15,23 @@ import { WordDisplayService } from '../core/helpers/word-display/word-display.se
 export class GameComponent implements OnInit {
 
   gameInfo: any[];
+  wordForm: FormGroup;
   wordMatchDisplay = [];
   id;
+  submitted = false;
 
   constructor(
+    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private game: GameService,
     private wordDisplay: WordDisplayService
   ) { }
 
   ngOnInit() {
+
+    this.wordForm = this.formBuilder.group({
+      guess: ["", [Validators.required, Validators.maxLength(1)]]
+    });
 
     this.route.paramMap
       .subscribe(
@@ -43,17 +54,25 @@ export class GameComponent implements OnInit {
       );
   }
 
+   // convenience getter for easy access to form fields
+   get getFormControls() { return this.wordForm.controls; }
+
 
   intialSetup(amount, array) {
-    this.wordDisplay.setupWordDisplay(amount,array)
+    this.wordDisplay.setupWordDisplay(amount,array);
   }
 
-  // creates wordMatch display
-  // createLines(amount, array){
 
-  //   for(let i = 0; i < amount; i++) {
-  //     array.push("-");
-  //   }
-  // }
+  onSubmit(){
+    this.submitted = true;
+     // stop here if form is invalid
+     if (this.wordForm.invalid) {
+      return;
+    }
+
+    // make a service that updates the databse stirng
+
+  }
+
 
 }

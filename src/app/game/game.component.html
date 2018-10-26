@@ -1,44 +1,49 @@
 <div class="container d-flex flex-column align-items-center justify-content-center">
 
-  <!--  area for Hangmn display -->
-  <div class="row hangman-display mt-5">
-    <div class="col-md-12 h">
-        <video  height="240" autoplay>
-          <source src="../../assets/IMG_2720.MOV" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
+    <!--  area for Hangmn display -->
+    <div class="row hangman-display mt-5">
+        <div class="col-md-12 h">
+            <video height="240" autoplay>
+                <source src="../../assets/IMG_2720.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
-  </div>
 
 
-  <div class="row d-flex flex-row justify-content-center flex-nowrap" style="text-align:center">
-    <div class="col-md wordmatch-container wordmatch-display mt-15 mb-20 flex-nowrap" *ngFor="let words of wordMatchDisplay">
-        <span>{{words}}</span>
-    </div>
-<!-- 
+    <div class="row d-flex flex-row justify-content-center flex-nowrap" style="text-align:center">
+        <div class="col-md wordmatch-container wordmatch-display mt-15 mb-20 flex-nowrap" *ngFor="let words of wordMatchDisplay">
+            <span>{{words}}</span>
+        </div>
+        <!-- 
     <div class="col-md-12 attempts-container">
         <small  class="form-text text-muted">Attempts: 0</small>
      </div> -->
-  </div>
+    </div>
 
-  <div class="row">
-      <div class="col-md-12" style="text-align:center">
-          <form>
-              <div class="form-group">
-                
-                <input type="text" class="form-control"  placeholder="Enter Guess...">
-                <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
-              </div>
-              <button type="submit" class="btn hangman-lightBlueBtn ">Submit</button>
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <form [formGroup]="wordForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <!-- Error Messages -->
+                    <div *ngIf="submitted && getFormControls.guess.errors" class="alert alert-danger" role="alert">
+                        <div *ngIf="getFormControls.guess.errors.required">A guess is required</div>
+                        <div *ngIf="getFormControls.guess.errors.maxlength">You can only guess 1 word at a time</div>
+                    </div>
+
+                    <input type="text" class="form-control" placeholder="Enter Guess..." formControlName="guess">
+                    <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
+                </div>
+                <button type="submit" class="btn hangman-lightBlueBtn ">Submit</button>
             </form>
-      </div>
-  </div>
+        </div>
+    </div>
 
-  <div class="row mt-5">
-      <div class="col-md-12 attempts-container">
-          <small  class="form-text text-muted"><span class="red">Attempts:</span> 0</small>
-       </div> 
-  </div>
+    <div class="row mt-5">
+        <div class="col-md-12 attempts-container">
+            <small class="form-text text-muted"><span class="red">Attempts:</span> 0</small>
+        </div>
+    </div>
 
 
 </div>

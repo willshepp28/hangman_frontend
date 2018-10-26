@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DecodeTokenService } from '../core/helpers/decodeToken/decode-token.service';
+import { GameService } from '../core/services/game/game/game.service';
 
 @Component({
   selector: 'app-account',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private decodeToken: DecodeTokenService,
+    private gameService: GameService
+  ) { }
 
   ngOnInit() {
   }
