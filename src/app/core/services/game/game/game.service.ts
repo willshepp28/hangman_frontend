@@ -11,8 +11,9 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
+
+
 createGame(userId) {
-  // return this.http.post<any>(this.url, userId);
   const httpHeaders = new HttpHeaders({
     "Content-Type": "application/json"
   });
@@ -24,9 +25,18 @@ createGame(userId) {
   });
 }
 
+
+
 getGame(gameId) {
   console.log(gameId);
   return this.http.get<any>(`${this.url}${gameId}`);
 }
 
+
+addWordToGame(postId, data) {
+  return this.http.post<any>(`${this.url}addWord/${postId}`, data);
 }
+
+}
+
+// /addWord/:postId

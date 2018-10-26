@@ -71,7 +71,13 @@ export class GameComponent implements OnInit {
     }
 
     // make a service that updates the databse stirng
-
+    this.game.addWordToGame(this.id, this.wordForm.value)
+      .subscribe(
+        response => {
+          console.log("success");
+        },
+        error => { console.log(error);}
+      );
   }
 
 
