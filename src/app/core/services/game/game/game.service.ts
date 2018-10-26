@@ -25,7 +25,8 @@ createGame(userId) {
 }
 
 getGame(gameId) {
-  return this.http.get<any>(this.url + gameId);
+  console.log(gameId);
+  return this.http.get<any>(`${this.url}${gameId}`);
 }
 
 }

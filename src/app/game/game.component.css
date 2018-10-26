@@ -1,3 +1,21 @@
-.container {
-    height: 50vh;
+/* .container {
+    height: 70vh;
+} */
+
+
+
+video {
+    border: 5px solid black;
+    border-radius: 3px;
 }
+
+.wordmatch-container {
+    background: rgb(235, 235, 235);
+}
+.wordmatch-display {
+    font-size: 50px;
+}
+
+.mt-15 { margin-top: 15px;}
+.mb-20 { margin-bottom: 20px;}
+.red { color: red}
