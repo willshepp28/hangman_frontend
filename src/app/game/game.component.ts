@@ -16,9 +16,12 @@ export class GameComponent implements OnInit {
 
   gameInfo: any[];
   wordForm: FormGroup;
-  wordMatchDisplay = [];
+  matchs;
   id;
   submitted = false;
+
+
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,17 +45,21 @@ export class GameComponent implements OnInit {
           this.game.getGame(this.id)
             .subscribe(
               response => {
+
+                // console.log(response);
                 this.gameInfo = response;
-                console.log(response);
-                this.intialSetup(response.wordLength, this.wordMatchDisplay);
-                console.log(this.wordMatchDisplay);
-                console.log(this.gameInfo);
+                this.matchs = response.matchs;
               },
               error => console.log(error)
             );
         }
       );
+
+      console.log(this.gameInfo);
   }
+
+
+
 
    // convenience getter for easy access to form fields
    get getFormControls() { return this.wordForm.controls; }
@@ -69,6 +76,8 @@ export class GameComponent implements OnInit {
      if (this.wordForm.invalid) {
       return;
     }
+
+    console.log(this.wordForm.value);
 
     // make a service that updates the databse stirng
     this.game.addWordToGame(this.id, this.wordForm.value)
