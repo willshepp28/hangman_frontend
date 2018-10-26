@@ -35,6 +35,7 @@ import { UserService } from './core/services/user/user.service';
 import { GameSequenceService } from './core/services/game/game-sequence/game-sequence.service';
 import { GameService } from './core/services/game/game/game.service';
 import { WordDisplayService } from './core/helpers/word-display/word-display.service';
+import { GameStatisticsService } from './core/services/game/game-statistics/game-statistics.service';
 
 
 
@@ -64,6 +65,7 @@ import { WordDisplayService } from './core/helpers/word-display/word-display.ser
     GameSequenceService,
     GameService,
     WordDisplayService,
+    GameStatisticsService,
      {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
