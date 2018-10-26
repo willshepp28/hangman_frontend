@@ -1,0 +1,21 @@
+/* .container {
+    height: 50vh;
+    text-align: center;
+  }
+   */
+
+.mt-25 {
+    margin-top: 25px;
+}
+
+.row p {
+    font-size: 13px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
