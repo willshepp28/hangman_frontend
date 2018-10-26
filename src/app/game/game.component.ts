@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { GameService } from '../core/services/game/game/game.service';
+import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 
 @Component({
   selector: 'app-game',
@@ -15,7 +16,8 @@ export class GameComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private game: GameService
+    private game: GameService,
+    private wordDisplay: WordDisplayService
   ) { }
 
   ngOnInit() {
@@ -31,7 +33,7 @@ export class GameComponent implements OnInit {
               response => {
                 this.gameInfo = response;
                 console.log(response);
-                this.createLines(response.wordLength, this.wordMatchDisplay);
+                this.intialSetup(response.wordLength, this.wordMatchDisplay);
                 console.log(this.wordMatchDisplay);
                 console.log(this.gameInfo);
               },
@@ -42,12 +44,16 @@ export class GameComponent implements OnInit {
   }
 
 
-  // creates wordMatch display
-  createLines(amount, array){
-
-    for(let i = 0; i < amount; i++) {
-      array.push("-");
-    }
+  intialSetup(amount, array) {
+    this.wordDisplay.setupWordDisplay(amount,array)
   }
+
+  // creates wordMatch display
+  // createLines(amount, array){
+
+  //   for(let i = 0; i < amount; i++) {
+  //     array.push("-");
+  //   }
+  // }
 
 }

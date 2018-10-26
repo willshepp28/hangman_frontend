@@ -34,6 +34,7 @@ import { DecodeTokenService } from './core/helpers/decodeToken/decode-token.serv
 import { UserService } from './core/services/user/user.service';
 import { GameSequenceService } from './core/services/game/game-sequence/game-sequence.service';
 import { GameService } from './core/services/game/game/game.service';
+import { WordDisplayService } from './core/helpers/word-display/word-display.service';
 
 
 
@@ -55,12 +56,20 @@ import { GameService } from './core/services/game/game/game.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService,AuthGuard, DecodeTokenService, UserService, GameSequenceService, GameService,{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }
-],
+  providers: [
+    AuthService,
+    AuthGuard,
+    DecodeTokenService,
+    UserService,
+    GameSequenceService,
+    GameService,
+    WordDisplayService,
+     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
