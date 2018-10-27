@@ -86,7 +86,8 @@ export class GameComponent implements OnInit {
       .subscribe(
         response => {
           console.log("success");
-
+          this.wordForm.reset();
+          this.submitted = false;
 
         this.game.getUpdatedMatchs(this.id)
             .subscribe(
