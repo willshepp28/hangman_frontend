@@ -22,10 +22,13 @@
     </div>
 
     <div class="row" *ngIf="gameOver">
-        <div class="col-md-12" style="text-align:center">
+        <div class="col-md-12" style="text-align:center" *ngIf="status === 'won'">
             <app-won></app-won>
-            <app-loss></app-loss>
         </div>
+
+        <div class="col-md-12" style="text-align:center" *ngIf="status == 'lost'">
+                <app-loss></app-loss>
+            </div>
     </div>
 
     <div class="row" *ngIf="!gameOver">
