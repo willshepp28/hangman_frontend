@@ -19,6 +19,7 @@ export class GameComponent implements OnInit {
   matchs;
   id;
   submitted = false;
+  attempts;
 
 
 
@@ -48,6 +49,7 @@ export class GameComponent implements OnInit {
 
                 // console.log(response);
                 this.gameInfo = response;
+                this.attempts = response.attempts;
                 this.matchs = response.matchs;
               },
               error => console.log(error)
@@ -84,6 +86,17 @@ export class GameComponent implements OnInit {
       .subscribe(
         response => {
           console.log("success");
+
+
+        this.game.getUpdatedMatchs(this.id)
+            .subscribe(
+              data => {
+                console.log(data),
+                this.matchs = data[0].matchs;
+                this.attempts = data[0].attempts;
+              },
+              error => console.log(error)
+            );
         },
         error => { console.log(error);}
       );

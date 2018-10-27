@@ -63,6 +63,15 @@ addWordToGame(postId, data) {
   return this.http.post<any>(`${this.url}addWord/${postId}`, data);
 }
 
+/*
+|--------------------------------------------------------------------------
+| GET - the data on the games the user has played and completed
+|--------------------------------------------------------------------------
+*/
+getUpdatedMatchs(postId){
+  return this.http.get<any>(this.url + `updated/match/${postId}`);
+}
+
 }
 
 
