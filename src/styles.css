@@ -16,6 +16,7 @@ html {
     transition: opacity .5s 0.1s ease;
 }
 
+.light-green { color: green;}
 
 /* Spacing Styles */
 .mt-25 {
@@ -31,6 +32,7 @@ html {
     color: rgb(72, 72, 72) !important;
 }
 
+.red { color: red; }
 
 
 
@@ -65,3 +67,8 @@ html {
 
 
 /*  Input styles */
+
+
+.status-font {
+    font: 110px !important;
+}

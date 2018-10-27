@@ -20,6 +20,8 @@ export class GameComponent implements OnInit {
   id;
   submitted = false;
   attempts;
+  gameOver = false;
+  status: string;
 
 
 
@@ -46,11 +48,14 @@ export class GameComponent implements OnInit {
           this.game.getGame(this.id)
             .subscribe(
               response => {
-
-                // console.log(response);
                 this.gameInfo = response;
                 this.attempts = response.attempts;
                 this.matchs = response.matchs;
+
+                if(this.attempts >= 10) {
+                  console.log("Attempts are greater than 10");
+                  this.gameOver = true;
+                }
               },
               error => console.log(error)
             );
@@ -72,14 +77,16 @@ export class GameComponent implements OnInit {
   }
 
 
+  reset(){
+    this.wordForm.reset();
+  }
+
   onSubmit(){
     this.submitted = true;
      // stop here if form is invalid
      if (this.wordForm.invalid) {
       return;
     }
-
-    console.log(this.wordForm.value);
 
     // make a service that updates the databse stirng
     this.game.addWordToGame(this.id, this.wordForm.value)
@@ -92,9 +99,13 @@ export class GameComponent implements OnInit {
         this.game.getUpdatedMatchs(this.id)
             .subscribe(
               data => {
-                console.log(data),
                 this.matchs = data[0].matchs;
                 this.attempts = data[0].attempts;
+
+                if(this.attempts >= 10) {
+                  console.log("You already made 10 attempts. The game is over");
+                  this.gameOver = true;
+                }
               },
               error => console.log(error)
             );

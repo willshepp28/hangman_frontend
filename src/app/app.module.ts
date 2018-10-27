@@ -36,6 +36,7 @@ import { GameSequenceService } from './core/services/game/game-sequence/game-seq
 import { GameService } from './core/services/game/game/game.service';
 import { WordDisplayService } from './core/helpers/word-display/word-display.service';
 import { GameStatisticsService } from './core/services/game/game-statistics/game-statistics.service';
+import { GameStatusGuard } from './core/guards/game-status/game-status.guard';
 
 
 
@@ -60,6 +61,7 @@ import { GameStatisticsService } from './core/services/game/game-statistics/game
   providers: [
     AuthService,
     AuthGuard,
+    GameStatusGuard,
     DecodeTokenService,
     UserService,
     GameSequenceService,

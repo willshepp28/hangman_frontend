@@ -17,7 +17,7 @@ export class GameService {
 |--------------------------------------------------------------------------
 */
 getGamesCompleted(){
-  return this.http.get<any>(this.url + "notComplete");
+  return this.http.get<any>(this.url + "completedGames");
 }
 
 
@@ -59,8 +59,8 @@ getGame(gameId) {
 | POST - where inputs news words to the specific game
 |--------------------------------------------------------------------------
 */
-addWordToGame(postId, data) {
-  return this.http.post<any>(`${this.url}addWord/${postId}`, data);
+addWordToGame(gameId, data) {
+  return this.http.post<any>(`${this.url}addWord/${gameId}`, data);
 }
 
 /*
@@ -68,9 +68,20 @@ addWordToGame(postId, data) {
 | GET - the data on the games the user has played and completed
 |--------------------------------------------------------------------------
 */
-getUpdatedMatchs(postId){
-  return this.http.get<any>(this.url + `updated/match/${postId}`);
+getUpdatedMatchs(gameId){
+  return this.http.get<any>(this.url + `updated/match/${gameId}`);
 }
+
+
+/*
+|--------------------------------------------------------------------------
+| GET - checks if the game is complete
+|--------------------------------------------------------------------------
+*/
+checkComplete(gameId) {
+  return this.http.get<any>(this.url + `checkComplete/${gameId}`);
+}
+
 
 }
 

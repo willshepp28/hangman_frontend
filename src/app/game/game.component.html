@@ -21,7 +21,14 @@
      </div> -->
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="gameOver">
+        <div class="col-md-12" style="text-align:center">
+            <app-won></app-won>
+            <app-loss></app-loss>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!gameOver">
         <div class="col-md-12" style="text-align:center">
             <form [formGroup]="wordForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
@@ -47,3 +54,4 @@
 
 
 </div>
+
