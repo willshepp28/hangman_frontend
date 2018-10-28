@@ -12,13 +12,14 @@
       <div *ngIf="isAuthenticated()" class="navbar-nav ml-auto">
             <a routerLink="/home" ><li class="nav_text nav-link">Home</li></a>
             <li class="nav_text nav-link"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-            <a routerLink="/account/{{userId}}"><li class="nav_text nav-link">Account</li></a>
+            <a routerLink="/account/getId()"><li class="nav_text nav-link">Account</li></a>
             <li class="nav_text nav-link"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
             <a routerLink="#" (click)="logOut()"><li class="nav_text nav-link">LogOut</li></a>
       </div>
 
       <!-- Shows if user isnt loggin in -->
       <div *ngIf="!isAuthenticated()" class="navbar-nav ml-auto">
+
             <a routerLink="/login" ><li class="nav_text nav-link">Login </li></a>
             <li class="nav_text nav-link"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
             <a routerLink="/signup"><li class="nav_text nav-link">Signup</li></a>
