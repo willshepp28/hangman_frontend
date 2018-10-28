@@ -8,6 +8,7 @@ import { GameService } from '../core/services/game/game/game.service';
 import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
 import { Route } from '@angular/compiler/src/core';
+import { VideoPlayerService } from '../core/helpers/video-player/video-player.service';
 
 @Component({
   selector: 'app-game',
@@ -16,7 +17,7 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class GameComponent implements OnInit {
 
-  // @ViewChild("videoPlayer") video: ElementRef;
+  @ViewChild("videoPlayer") video: ElementRef;
 
   gameInfo: any[];
   wordForm: FormGroup;
@@ -26,11 +27,10 @@ export class GameComponent implements OnInit {
   attempts;
   gameOver = false;
   status;
+  videoCurrentTime = [0,4,9,13,18,21,25,28,31,36,40];
+  begin;
+  end;
 
-  videoTime = {
-    attempt1: 0,
-    attempt2: 5
-  };
 
 
   constructor(
@@ -40,12 +40,14 @@ export class GameComponent implements OnInit {
     private router: Router,
     private game: GameService,
     private wordDisplay: WordDisplayService,
-    private sequenceService: GameSequenceService
+    private sequenceService: GameSequenceService,
+    private videoService: VideoPlayerService
   ) { }
 
   ngOnInit() {
+     this.videoTimeInterval(0,20);
 
-    // console.log(this.renderer.setProperty());
+    // console.log(this.renderer.setProperty(this.video));
 
     this.wordForm = this.formBuilder.group({
       guess: ["", [Validators.required, Validators.maxLength(1)]]
@@ -88,31 +90,41 @@ export class GameComponent implements OnInit {
 
   }
 
+  videoTimeInterval(startTime, endTime){
 
-  // ngDoCheck(){
-  //   if(this.status === "win") {
-  //     console.log("Yup");
-  //   }
-  // }
+    this.end = this.renderer.setProperty(this.video.nativeElement, "currentTime", endTime);
+    // We use startTime to know where to start the video
 
+    // while(this.video.nativeElement.currentTime < 50){
+    //   // console.log("Yes")
+    //   // setTimeout(() => {
+    //   //       console.log(startTime);
+    //   // this.renderer.setProperty(this.video.nativeElement, "currentTime", startTime);
+    //   // startTime++;
+    //   // }, 1000);
+    // }
 
+    // We get end time to know where to end the video
+    console.log(this.video.nativeElement.currentTime);
+  }
 
-  // playVideo(time) {
-  //   /**
-  //    * You are accessing a dom element directly here,
-  //    * so you need to call "nativeElement" first.
-  //    */
-  //   // this.video.nativeElement.play();
-  // }
+   /*
+  |--------------------------------------------------------------------------
+  | This method plays the video element
+  |--------------------------------------------------------------------------
+  */
+  playVideo() {
+    this.video.nativeElement.play();
+  }
 
-  // pauseVideo() {
-  //   /**
-  //    * You are accessing a dom element directly here,
-  //    * so you need to call "nativeElement" first.
-  //    */
-  //   // console.log(this.video.nativeElement.currentTime);
-  //   // this.video.nativeElement.pause();
-  // }
+   /*
+  |--------------------------------------------------------------------------
+  | This method pauses the video element
+  |--------------------------------------------------------------------------
+  */
+  pauseVideo() {
+    this.video.nativeElement.pause();
+  }
 
   /*
   |--------------------------------------------------------------------------

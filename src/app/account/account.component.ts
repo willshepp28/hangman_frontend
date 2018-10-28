@@ -59,7 +59,7 @@ export class AccountComponent implements OnInit {
     // get all the games a user has won
     this.statisticService.getGamesWon()
       .subscribe(
-        response => { this.gamesWon = response[0].count; },
+        response => { console.log(response ), this.gamesWon = response[0].count; },
         error => console.log(error)
       );
 
