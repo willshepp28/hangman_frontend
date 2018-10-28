@@ -19,17 +19,6 @@ export class AccountComponent implements OnInit {
   token;
   tokenId;
 
-  dummyGamesCompleted = [
-    { id: 1, word: 'open', attempts: 10, status: "Won" },
-    { id: 1, word: 'food', attempts: 10, status: "Lost" },
-    { id: 1, word: 'amazing', attempts: 8, status: "Won" },
-    { id: 1, word: 'plot', attempts: 10, status: "Lost" },
-    { id: 1, word: 'drink', attempts: 10, status: "Lost" },
-    { id: 1, word: 'house', attempts: 10, status: "Lost" },
-    { id: 1, word: 'mouth', attempts: 7, status: "Won" },
-    { id: 1, word: 'day', attempts: 8, status: "Won" },
-    { id: 1, word: 'vacate', attempts: 7, status: "Won" }
-  ]; // well use this until we have records of games the user has completed
 
 
   constructor(

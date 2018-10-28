@@ -35,8 +35,11 @@
         <div class="row" style="width: 100%; text-align: left;">
 
           
-          <div class="col-md-10" *ngFor="let games of dummyGamesCompleted">
-              <p class="grey"><strong>Game id: </strong>{{games.id}}<strong class="ml-5">Word: </strong>{{games.word}}<strong class="ml-5">Attempts: </strong>{{games.attempts}}<strong class="ml-5">Status: </strong>{{games.status}}</p>
+          <div class="col-md-10">
+              <div *ngFor="let games of gamesCompleted">
+                    <p class="grey"><strong>Game id: </strong>{{games.id}}<strong class="ml-5">Word: </strong>{{games.word}}<strong class="ml-5">Attempts: </strong>{{games.attempts}}<strong class="ml-5">Status: </strong>{{games.status}}</p>
+              </div>
+              
           </div>
         </div>
     
