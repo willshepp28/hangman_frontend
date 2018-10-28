@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,8 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../core/services/game/game/game.service';
 import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
-import { SetvideoTimeService } from '../core/helpers/setvideo-time/setvideo-time.service';
-import { start } from 'repl';
+
 
 
 @Component({
@@ -18,7 +17,6 @@ import { start } from 'repl';
 })
 export class GameComponent implements OnInit {
 
-  @ViewChild("videoPlayer") video: ElementRef;
 
   gameInfo: any[];
   wordForm: FormGroup;
@@ -37,13 +35,11 @@ export class GameComponent implements OnInit {
 
 
   constructor(
-    private renderer: Renderer2,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private game: GameService,
     private wordDisplay: WordDisplayService,
     private sequenceService: GameSequenceService,
-    private timeService: SetvideoTimeService
   ) { }
 
   ngOnInit() {
@@ -84,7 +80,6 @@ export class GameComponent implements OnInit {
             );
         }
       );
-
   }
 
 
@@ -97,24 +92,6 @@ export class GameComponent implements OnInit {
     this.hangManImage = `https://s3.amazonaws.com/hangman-app/sequences/${attempt}.png`;
   }
 
-
-   /*
-  |--------------------------------------------------------------------------
-  | This method plays the video element
-  |--------------------------------------------------------------------------
-  */
-  playVideo() {
-    this.video.nativeElement.play();
-  }
-
-   /*
-  |--------------------------------------------------------------------------
-  | This method pauses the video element
-  |--------------------------------------------------------------------------
-  */
-  pauseVideo() {
-    this.video.nativeElement.pause();
-  }
 
   /*
   |--------------------------------------------------------------------------
@@ -164,8 +141,6 @@ export class GameComponent implements OnInit {
 
           this.wordForm.reset(); // resets the form after user submits
           this.submitted = false;
-
-
 
 
           setTimeout(() => {
