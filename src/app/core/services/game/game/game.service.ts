@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Injectable({
@@ -7,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GameService {
 
-  private url = "http://localhost:3000/api/v1/game/";
+  private url = environment.url + "game/";
 
   constructor(private http: HttpClient) { }
 

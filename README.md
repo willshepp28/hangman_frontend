@@ -84,3 +84,10 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 - Functionality first, design last....
 - make sure your exporting you modules with the right spelling " module.exports not module.export"
 - clean up your routes by putting queries in a query folder.
+
+
+
+
+## Helpful Resources
+
+- https://www.youtube.com/watch?v=FOdetrZCsmU

@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { GameService } from '../game/game.service';
 import { HttpClient } from '@angular/common/http';
+
+import {environment} from "../../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameSequenceService {
-  private url = "http://localhost:3000/api/v1/sequence/";
+
+  private url = environment.url + "sequence/";
 
 
   constructor(
-    private router: Router,
     private http: HttpClient,
-    private gameService: GameService
   ) { }
 
 

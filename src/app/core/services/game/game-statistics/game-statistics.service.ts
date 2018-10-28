@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameStatisticsService {
 
-  private url = "http://localhost:3000/api/v1/gameStats/";
+  // private url = "http://localhost:3000/api/v1/gameStats/";
+  private url = environment.url + "gameStats/";
 
   constructor(
     private http: HttpClient
