@@ -92,15 +92,11 @@ export class GameComponent implements OnInit {
 
     this.end = this.renderer.setProperty(this.video.nativeElement, "currentTime", endTime);
     // We use startTime to know where to start the video
+    // while(this.video.nativeElement.currentTime < 50)
 
-    // while(this.video.nativeElement.currentTime < 50){
-    //   // console.log("Yes")
-    //   // setTimeout(() => {
-    //   //       console.log(startTime);
-    //   // this.renderer.setProperty(this.video.nativeElement, "currentTime", startTime);
-    //   // startTime++;
-    //   // }, 1000);
-    // }
+    setInterval(() => {
+      console.log("yup");
+    }, 3000);
 
     // We get end time to know where to end the video
     console.log(this.video.nativeElement.currentTime);

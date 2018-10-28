@@ -6,10 +6,10 @@
     </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="ml-auto" id="navbarNavAltMarkup">
 
        <!-- Shows if user is loggin in -->
-      <div *ngIf="isAuthenticated()" class="navbar-nav ml-auto">
+      <div *ngIf="isAuthenticated()" class="navbar-nav ml-auto d-flex flex-row flex-nowrap ">
             <a routerLink="/home" ><li class="nav_text nav-link">Home</li></a>
             <li class="nav_text nav-link"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
             <a routerLink="/account/getId()"><li class="nav_text nav-link">Account</li></a>
