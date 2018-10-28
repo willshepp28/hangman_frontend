@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class GameStatisticsService {
 
   // private url = "http://localhost:3000/api/v1/gameStats/";
-  private url = environment.url + "gameStats/";
+  private url = environment.URL + "gameStats/";
 
   constructor(
     private http: HttpClient

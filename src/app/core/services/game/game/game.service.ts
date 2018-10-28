@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class GameService {
 
-  private url = environment.url + "game/";
+  private url = environment.URL + "game/";
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +29,7 @@ getGamesCompleted(){
 |--------------------------------------------------------------------------
 */
 createGame(userId) {
+  console.log(this.url);
   const httpHeaders = new HttpHeaders({
     "Content-Type": "application/json"
   });

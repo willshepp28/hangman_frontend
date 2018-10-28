@@ -45,9 +45,7 @@ export class GameComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     this.videoTimeInterval(0,20);
-
-    // console.log(this.renderer.setProperty(this.video));
+    this.renderer.setProperty(this.video.nativeElement, "currentTime", 0.2); // starts the video at 0
 
     this.wordForm = this.formBuilder.group({
       guess: ["", [Validators.required, Validators.maxLength(1)]]

@@ -8,7 +8,7 @@ import {environment} from "../../../../../environments/environment";
 })
 export class GameSequenceService {
 
-  private url = environment.url + "sequence/";
+  private url = environment.URL + "sequence/";
 
 
   constructor(

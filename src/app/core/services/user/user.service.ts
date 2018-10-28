@@ -7,7 +7,7 @@ import { environment } from "../../../../environments/environment";
 })
 export class UserService {
 
-  private url = environment.url + "user/";
+  private url = environment.URL + "user/";
 
   constructor(private http: HttpClient) { }
 
