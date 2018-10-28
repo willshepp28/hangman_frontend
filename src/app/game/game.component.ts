@@ -1,5 +1,5 @@
-import { Component, OnInit, DoCheck, ViewChild, Renderer2, ElementRef } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -7,8 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../core/services/game/game/game.service';
 import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
-import { Route } from '@angular/compiler/src/core';
-import { VideoPlayerService } from '../core/helpers/video-player/video-player.service';
+import { SetvideoTimeService } from '../core/helpers/setvideo-time/setvideo-time.service';
+import { start } from 'repl';
+
 
 @Component({
   selector: 'app-game',
@@ -27,7 +28,9 @@ export class GameComponent implements OnInit {
   attempts;
   gameOver = false;
   status;
-  videoCurrentTime = [0,4,9,13,18,21,25,28,31,36,40];
+
+  hangManImage = "https://s3.amazonaws.com/hangman-app/sequences/0.png";
+
   begin;
   end;
 
@@ -37,15 +40,13 @@ export class GameComponent implements OnInit {
     private renderer: Renderer2,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router,
     private game: GameService,
     private wordDisplay: WordDisplayService,
     private sequenceService: GameSequenceService,
-    private videoService: VideoPlayerService
+    private timeService: SetvideoTimeService
   ) { }
 
   ngOnInit() {
-    this.renderer.setProperty(this.video.nativeElement, "currentTime", 0.2); // starts the video at 0
 
     this.wordForm = this.formBuilder.group({
       guess: ["", [Validators.required, Validators.maxLength(1)]]
@@ -65,8 +66,6 @@ export class GameComponent implements OnInit {
                 this.attempts = response.attempts;
                 this.matchs = response.matchs;
                 this.status = response.status;
-
-                console.log(response.status);
 
                 // if the user already won, we set gameOver to true, and status to won
                 if (this.status === "won") {
@@ -88,19 +87,16 @@ export class GameComponent implements OnInit {
 
   }
 
-  videoTimeInterval(startTime, endTime){
 
-    this.end = this.renderer.setProperty(this.video.nativeElement, "currentTime", endTime);
-    // We use startTime to know where to start the video
-    // while(this.video.nativeElement.currentTime < 50)
-
-    setInterval(() => {
-      console.log("yup");
-    }, 3000);
-
-    // We get end time to know where to end the video
-    console.log(this.video.nativeElement.currentTime);
+   /*
+  |--------------------------------------------------------------------------
+  | Where we switch the images based on the progression of the game
+  |--------------------------------------------------------------------------
+  */
+  setHangmanImage(attempt){
+    this.hangManImage = `https://s3.amazonaws.com/hangman-app/sequences/${attempt}.png`;
   }
+
 
    /*
   |--------------------------------------------------------------------------
@@ -183,7 +179,7 @@ export class GameComponent implements OnInit {
                   this.status = data.status;
 
 
-
+                  this.setHangmanImage(this.attempts);
                   // if the user already won, we set gameOver to true, and status to won
                   if (this.status === "won") {
                     this.gameOver = true;

@@ -38,6 +38,7 @@ import { WordDisplayService } from './core/helpers/word-display/word-display.ser
 import { GameStatisticsService } from './core/services/game/game-statistics/game-statistics.service';
 import { GameStatusGuard } from './core/guards/game-status/game-status.guard';
 import { VideoPlayerService } from './core/helpers/video-player/video-player.service';
+import { SetvideoTimeService } from './core/helpers/setvideo-time/setvideo-time.service';
 
 
 
@@ -70,6 +71,7 @@ import { VideoPlayerService } from './core/helpers/video-player/video-player.ser
     WordDisplayService,
     GameStatisticsService,
     VideoPlayerService,
+    SetvideoTimeService,
      {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
