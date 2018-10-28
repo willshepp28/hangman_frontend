@@ -17,7 +17,7 @@ export class GameSequenceService {
   ) { }
 
 
-// We need to make a http request when the user either makes 10 attempts or when the user gueses all words correctly
+
 /*
 |--------------------------------------------------------------------------
 | POST - updates the game.status to "lost" and game.isComplete = true
@@ -26,6 +26,17 @@ export class GameSequenceService {
 */
 playerLost(gameId) {
   return this.http.post<any>(this.url + "lost", gameId);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| POST - updates the game.status to "lost" and game.isComplete = true
+|  * used when the player had made 10 incorrect attempts
+|--------------------------------------------------------------------------
+*/
+playerWon(gameId) {
+  return this.http.post<any>(this.url + "won", gameId);
 }
 
 

@@ -14,7 +14,7 @@ import { GameService } from '../core/services/game/game/game.service';
 })
 export class HomeComponent implements OnInit {
 
-  game: [];
+  game: any[];
   username: string;
   token;
   tokenId;

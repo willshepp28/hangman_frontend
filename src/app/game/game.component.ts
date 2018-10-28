@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit, DoCheck, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameService } from '../core/services/game/game/game.service';
 import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-game',
@@ -14,6 +15,8 @@ import { GameSequenceService } from '../core/services/game/game-sequence/game-se
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
+
+  // @ViewChild("videoPlayer") video: ElementRef;
 
   gameInfo: any[];
   wordForm: FormGroup;
@@ -24,18 +27,25 @@ export class GameComponent implements OnInit {
   gameOver = false;
   status;
 
-
+  videoTime = {
+    attempt1: 0,
+    attempt2: 5
+  };
 
 
   constructor(
+    private renderer: Renderer2,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private game: GameService,
     private wordDisplay: WordDisplayService,
     private sequenceService: GameSequenceService
   ) { }
 
   ngOnInit() {
+
+    // console.log(this.renderer.setProperty());
 
     this.wordForm = this.formBuilder.group({
       guess: ["", [Validators.required, Validators.maxLength(1)]]
@@ -56,6 +66,15 @@ export class GameComponent implements OnInit {
                 this.matchs = response.matchs;
                 this.status = response.status;
 
+                console.log(response.status);
+
+                // if the user already won, we set gameOver to true, and status to won
+                if (this.status === "won") {
+                  this.gameOver = true;
+                  this.status = response.status;
+                }
+
+                // if the user already made 10 incorrect attempts we set gameOver to true. And status to lost
                 if (this.attempts >= 10) {
                   console.log("Attempts are greater than 10");
                   this.gameOver = true;
@@ -67,26 +86,69 @@ export class GameComponent implements OnInit {
         }
       );
 
-    console.log(this.gameInfo);
   }
 
 
+  // ngDoCheck(){
+  //   if(this.status === "win") {
+  //     console.log("Yup");
+  //   }
+  // }
 
 
-  // convenience getter for easy access to form fields
+
+  // playVideo(time) {
+  //   /**
+  //    * You are accessing a dom element directly here,
+  //    * so you need to call "nativeElement" first.
+  //    */
+  //   // this.video.nativeElement.play();
+  // }
+
+  // pauseVideo() {
+  //   /**
+  //    * You are accessing a dom element directly here,
+  //    * so you need to call "nativeElement" first.
+  //    */
+  //   // console.log(this.video.nativeElement.currentTime);
+  //   // this.video.nativeElement.pause();
+  // }
+
+  /*
+  |--------------------------------------------------------------------------
+  | Gets us access to form fields
+  |--------------------------------------------------------------------------
+  */
   get getFormControls() { return this.wordForm.controls; }
 
 
+  /*
+  |--------------------------------------------------------------------------
+  | Sets up the match display
+  |--------------------------------------------------------------------------
+  */
   intialSetup(amount, array) {
     this.wordDisplay.setupWordDisplay(amount, array);
   }
 
-
+  /*
+  |--------------------------------------------------------------------------
+  | Resets the values in the form
+  |--------------------------------------------------------------------------
+  */
   reset() {
     this.wordForm.reset();
   }
 
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Submits input value when user presses submit
+  |--------------------------------------------------------------------------
+  */
   onSubmit() {
+    console.clear();
     this.submitted = true;
     // stop here if form is invalid
     if (this.wordForm.invalid) {
@@ -98,46 +160,57 @@ export class GameComponent implements OnInit {
       .subscribe(
         response => {
 
-           this.wordForm.reset(); // resets the form after user submits
+          this.wordForm.reset(); // resets the form after user submits
           this.submitted = false;
 
 
-          // We run this to get the updated word matchs and attempts
-          this.game.getUpdatedMatchs(this.id)
-            .subscribe(
-              data => {
-                this.matchs = data[0].matchs;
-                this.attempts = data[0].attempts;
 
 
-              // We run this if the user already made 10 attempts
-                if (this.attempts >= 10) {
+          setTimeout(() => {
+
+            // We run this to get the updated word matchs and attempts
+            this.game.getGame(this.id)
+              .subscribe(
+                data => {
+                  this.matchs = data.matchs;
+                  this.attempts = data.attempts;
+                  this.status = data.status;
 
 
-                  /**
-                   * We run this if the user has already made 10 attempts but the status is still pending
-                   *    - we run this query to update the status to lost , and the isComplete property to true
-                   */
-                  if (data[0].status === "pending") {
-                    console.log("in pending");
-                    this.sequenceService.playerLost({ id: this.id })
-                      .subscribe(
-                        gameData => {
-                          this.status = gameData[0];
-                          this.gameOver = true;
-                        },
-                        error => { console.log(error);}
-                      );
-                  }
-                  else {
-                    console.log("You already made 10 attempts. The game is over");
-                    this.status = data[0].status;
+
+                  // if the user already won, we set gameOver to true, and status to won
+                  if (this.status === "won") {
                     this.gameOver = true;
                   }
-                }
-              },
-              error => console.log(error)
-            );
+                  // We run this if the user already made 10 attempts
+                  if (this.attempts >= 10) {
+
+                    /**
+                     * We run this if the user has already made 10 attempts but the status is still pending
+                     *    - we run this query to update the status to lost , and the isComplete property to true
+                     */
+                    if (this.status === "pending") {
+                      console.log("in pending");
+                      this.sequenceService.playerLost({ id: this.id })
+                        .subscribe(
+                          gameData => {
+                            this.status = gameData[0];
+                            this.gameOver = true;
+                          },
+                          error => { console.log(error); }
+                        );
+                    }
+                    else {
+                      console.log("You already made 10 attempts. The game is over");
+                      this.status = data[0].status;
+                      this.gameOver = true;
+                    }
+                  }
+                },
+                error => console.log(error)
+              );
+
+          }, 1000);
         },
         error => { console.log(error); }
       );
