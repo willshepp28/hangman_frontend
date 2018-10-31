@@ -38,15 +38,6 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 * [typescript][]: provides optional static typing, classes and interfaces. 
 
 
-#### Node Packages (Backend)
-
-* [cors][]: middleware that can be used to enable CORS with various options.
-* [jsonwebtoken][]: allow claims, such as user data, to be represented in a secure manner.
-* [random-words][]: generates random words for use as simple text.
-* [pg][]: Postgres driver for Node.js
-* [compression][]: ompression middleware.
-
-
 [Heroku]: http://heroku.com/
 
 [jquery]: https://jquery.com/
@@ -64,11 +55,6 @@ Check out the Back end code at https://github.com/willshepp28/hangman_backend
 [Knex]: https://knexjs.org/
 [Angular 6]: https://angular.io/
 
-[cors]:
-[jsonwebtoken]: https://jwt.io/
-[compression]: https://github.com/expressjs/compression
-[random-word][]: https://github.com/punkave/random-words#readme
-[pg]: https://github.com/brianc/node-postgres
 
 
 
