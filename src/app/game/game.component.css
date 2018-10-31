@@ -2,7 +2,12 @@
     height: 70vh;
 } */
 
-
+.hangman-display img {
+    object-fit: cover;
+    object-position: 40% 0;
+    width: 300px;
+    height: 337px;
+}
 
 video {
     border: 5px solid black;
@@ -11,9 +16,11 @@ video {
 
 .wordmatch-container {
     background: rgb(235, 235, 235);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
 }
 .wordmatch-display {
     font-size: 50px;
+    border-radius: 3px;
 }
 
 .mt-15 { margin-top: 15px;}

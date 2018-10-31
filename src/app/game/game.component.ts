@@ -8,6 +8,8 @@ import { GameService } from '../core/services/game/game/game.service';
 import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
 
+import {environment} from "../../environments/environment";
+
 
 
 @Component({
@@ -16,7 +18,6 @@ import { GameSequenceService } from '../core/services/game/game-sequence/game-se
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-
 
   gameInfo: any[];
   wordForm: FormGroup;
@@ -43,6 +44,8 @@ export class GameComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    console.log(environment.URL);
 
     this.wordForm = this.formBuilder.group({
       guess: ["", [Validators.required, Validators.maxLength(1)]]
