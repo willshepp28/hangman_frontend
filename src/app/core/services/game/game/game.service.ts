@@ -6,9 +6,11 @@ import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
+
 export class GameService {
-  private url2 = "https://localhost:3000/api/v1/game/";
-  private url = environment.URL + "game/";
+
+  private url = "https://hangman-backend.herokuapp.com/api/v1/game/";
+  // private url2 = "https://localhost:3000/api/v1/game/";
 
   constructor(private http: HttpClient) { }
 

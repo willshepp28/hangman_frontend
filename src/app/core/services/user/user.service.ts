@@ -8,7 +8,7 @@ import { environment } from "../../../../environments/environment";
 export class UserService {
 
   // private url2 = "https://localhost:3000/api/v1/user/";
-  private url = environment.URL + "user/";
+  private url = "https://hangman-backend.herokuapp.com/api/v1/user/";
 
   constructor(private http: HttpClient) { }
 

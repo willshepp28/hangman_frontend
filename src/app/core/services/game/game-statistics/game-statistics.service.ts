@@ -7,8 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class GameStatisticsService {
 
-  // private url = "http://localhost:3000/api/v1/gameStats/";
-  private url = environment.URL + "gameStats/";
+  private url = "https://hangman-backend.herokuapp.com/api/v1/gameStats/";
   // private url2 = "https://localhost:3000/api/v1/gameStats";
 
   constructor(

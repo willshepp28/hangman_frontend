@@ -10,7 +10,7 @@ export class AuthService {
 
 
 
-  private url = environment.URL;
+  private url = "https://hangman-backend.herokuapp.com/api/v1/";
 
   constructor(private http: HttpClient, private router: Router) { }
 

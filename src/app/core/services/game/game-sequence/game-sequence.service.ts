@@ -8,8 +8,8 @@ import {environment} from "../../../../../environments/environment";
 })
 export class GameSequenceService {
 
-  private url2 = "https://localhost:3000/api/v1/sequence/";
-  private url = environment.URL + "sequence/";
+  // private url2 = "https://localhost:3000/api/v1/sequence/";
+  private url = "https://hangman-backend.herokuapp.com/api/v1/sequence/";
 
 
   constructor(
