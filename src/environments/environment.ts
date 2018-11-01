@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL: "http://localhost:3000/api/v1/"
+  URL: "https://hangman-backend.herokuapp.com/api/v1/"
 };
 
 /*

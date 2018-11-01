@@ -7,7 +7,7 @@ import { environment } from "../../../../environments/environment";
 })
 export class UserService {
 
-  private url2 = "https://localhost:3000/api/v1/user/";
+  // private url2 = "https://localhost:3000/api/v1/user/";
   private url = environment.URL + "user/";
 
   constructor(private http: HttpClient) { }
@@ -19,6 +19,8 @@ export class UserService {
 |--------------------------------------------------------------------------
 */
 getUser(userId) {
+
+  console.log(environment.URL);
   return this.http.get<any>(this.url + userId);
 }
 
