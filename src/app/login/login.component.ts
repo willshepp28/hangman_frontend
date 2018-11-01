@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // Services
 import { AuthService } from '../core/authentication/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FacebookService } from '../core/services/social/facebook/facebook.service';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private fbService: FacebookService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
