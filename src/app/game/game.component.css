@@ -27,3 +27,8 @@ video {
 .mb-20 { margin-bottom: 20px;}
 .red { color: red}
 .light-green { color: lawngreen;}
+
+
+input:hover {
+    background-color: rgb(247, 248, 250);
+}

@@ -8,7 +8,6 @@ import { GameService } from '../core/services/game/game/game.service';
 import { WordDisplayService } from '../core/helpers/word-display/word-display.service';
 import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
 
-import {environment} from "../../environments/environment";
 
 
 
@@ -30,9 +29,6 @@ export class GameComponent implements OnInit {
 
   hangManImage = "https://s3.amazonaws.com/hangman-app/sequences/0.png";
 
-  begin;
-  end;
-
 
 
   constructor(
@@ -44,8 +40,6 @@ export class GameComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    console.log(environment.URL);
 
     this.wordForm = this.formBuilder.group({
       guess: ["", [Validators.required, Validators.maxLength(1)]]
@@ -164,7 +158,7 @@ export class GameComponent implements OnInit {
                   }
                   // We run this if the user already made 10 attempts
                   if (this.attempts >= 10) {
-
+                    console.log("Attempts are greater than 10");
                     /**
                      * We run this if the user has already made 10 attempts but the status is still pending
                      *    - we run this query to update the status to lost , and the isComplete property to true
@@ -174,6 +168,7 @@ export class GameComponent implements OnInit {
                       this.sequenceService.playerLost({ id: this.id })
                         .subscribe(
                           gameData => {
+                            console.log("invoking player lost function");
                             this.status = gameData[0];
                             this.gameOver = true;
                           },

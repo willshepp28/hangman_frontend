@@ -2,6 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from 'angular-6-social-login';
+
 
 
 
@@ -41,7 +48,6 @@ import { VideoPlayerService } from './core/helpers/video-player/video-player.ser
 import { SetvideoTimeService } from './core/helpers/setvideo-time/setvideo-time.service';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +64,8 @@ import { SetvideoTimeService } from './core/helpers/setvideo-time/setvideo-time.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocialLoginModule
   ],
   providers: [
     AuthService,

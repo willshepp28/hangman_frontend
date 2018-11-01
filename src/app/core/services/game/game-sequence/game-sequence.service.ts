@@ -8,8 +8,8 @@ import {environment} from "../../../../../environments/environment";
 })
 export class GameSequenceService {
 
-  private url = "http://localhost:3000/api/v1/sequence";
-  private url2 = environment.URL + "sequence/";
+  private url2 = "https://localhost:3000/api/v1/sequence/";
+  private url = environment.URL + "sequence/";
 
 
   constructor(

@@ -38,7 +38,8 @@ export class HomeComponent implements OnInit {
 |--------------------------------------------------------------------------
 */
     this.token = this.decodeToken.getDecodedAccessToken(localStorage.getItem('token')); // gets the token
-    this.tokenId = this.token.user[0].id; // gets the user id out of the token
+    console.log(this.token);
+    this.tokenId = this.token.user[0].id || this.token.user.id; // gets the user id out of the token
 
     this.userService.getUser(this.tokenId)
       .subscribe(

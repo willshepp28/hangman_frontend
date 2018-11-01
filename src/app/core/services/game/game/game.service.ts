@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class GameService {
-  private url = "http://localhost:3000/api/v1/game/";
-  private url2 = environment.URL + "game/";
+  private url2 = "https://localhost:3000/api/v1/game/";
+  private url = environment.URL + "game/";
 
   constructor(private http: HttpClient) { }
 

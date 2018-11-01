@@ -7,8 +7,8 @@ import { environment } from "../../../../environments/environment";
 })
 export class UserService {
 
-  private url = "http://localhost:3000/api/v1/user/";
-  private url2 = environment.URL + "user/";
+  private url2 = "https://localhost:3000/api/v1/user/";
+  private url = environment.URL + "user/";
 
   constructor(private http: HttpClient) { }
 
