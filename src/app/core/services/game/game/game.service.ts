@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment.prod';
 
 export class GameService {
 
-  private url2 = "https://hangman-backend.herokuapp.com/api/v1/game/";
-  private url = "http://localhost:3000/api/v1/game/";
+  private url = "https://hangman-backend.herokuapp.com/api/v1/game/";
+  private ur2 = "http://localhost:3000/api/v1/game/";
 
   constructor(private http: HttpClient) { }
 
