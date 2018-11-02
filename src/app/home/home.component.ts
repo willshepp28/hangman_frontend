@@ -53,9 +53,11 @@ export class HomeComponent implements OnInit {
   | Starts the game once the user presses the button
   |--------------------------------------------------------------------------
   */
-  startGame() {
+  startGame(level) {
+    console.log(`The level: ${level}`);
+    console.log(typeof level);
     // redirects user to the game page
-    this.gameService.createGame({ tokenId: this.tokenId })
+    this.gameService.createGame({ tokenId: this.tokenId, level: level })
       .subscribe(
         response => {
           this.game = response.body;

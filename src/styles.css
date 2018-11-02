@@ -15,6 +15,7 @@ body {
     /* background-color: rgb(242, 242, 242); */
     
     background-color: rgb(255,255,255);
+    background-color: rgb(252, 249, 242);
 }
 
 
@@ -50,6 +51,10 @@ body {
     background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
     
+}
+
+.nav-alt {
+    background-image: linear-gradient(-46deg, rgb(235, 67, 57) 0%, rgb(179, 39, 191) 47%, rgb(102, 102, 254) 100%);
 }
 
 .nav-hangmanBlue h1 {

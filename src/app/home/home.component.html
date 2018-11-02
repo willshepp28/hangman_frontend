@@ -2,11 +2,24 @@
   <div class="row">
     <h1>Hi, {{ username }}</h1>
   </div>
-
+  <div class="row">
+      <p class="grey">let the games begin...</p>
+  </div>
   <div class="row mt-5">
+   
     <div class="col-md"> 
-        <p class="grey">let the games begin...</p>
-        <button (click)="startGame()" type="button" class="btn hangman-lightBlueBtn ">Start Game</button>
+        
+        <button (click)="startGame('easy')" type="button" class="btn btn-warning ">Easy</button>
+    </div>
+
+    <div class="col-md"> 
+        
+        <button (click)="startGame('medium')" type="button" class="btn hangman-lightBlueBtn ">Medium</button>
+    </div>
+
+    <div class="col-md"> 
+        
+        <button (click)="startGame('hard')" type="button" class="btn btn-danger ">Hard</button>
     </div>
   </div>
 </div>
