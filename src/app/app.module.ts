@@ -40,6 +40,7 @@ import { GameStatisticsService } from './core/services/game/game-statistics/game
 import { GameStatusGuard } from './core/guards/game-status/game-status.guard';
 import { VideoPlayerService } from './core/helpers/video-player/video-player.service';
 import { SetvideoTimeService } from './core/helpers/setvideo-time/setvideo-time.service';
+import { HangmanDisplayComponent } from './game/hangman-display/hangman-display.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { SetvideoTimeService } from './core/helpers/setvideo-time/setvideo-time.
     GameComponent,
     AccountComponent,
     WonComponent,
-    LossComponent
+    LossComponent,
+    HangmanDisplayComponent
   ],
   imports: [
     BrowserModule,
