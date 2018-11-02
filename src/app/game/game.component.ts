@@ -9,7 +9,8 @@ import { WordDisplayService } from '../core/helpers/word-display/word-display.se
 import { GameSequenceService } from '../core/services/game/game-sequence/game-sequence.service';
 
 
-
+// Component
+import { HangmanDisplayComponent } from './hangman-display/hangman-display.component';
 
 @Component({
   selector: 'app-game',
