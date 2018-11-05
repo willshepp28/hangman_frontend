@@ -1,3 +1,22 @@
-<p>
-  saved-games works!
-</p>
+
+  <div class="row mt-5 mb-5 ml-3">
+    <div class="col-md-12">
+      <h1>Saved Games</h1>
+    </div>
+  </div>
+
+
+  <div class="row ml-4 mb-4" *ngFor="let game of games">
+    <div class="col-md-4">
+      <p><strong class="mr-2">Matchs: </strong>{{game.matchs}} <strong class="ml-5 mr-2">Attempts: </strong>{{game.attempts}} </p>
+    </div>
+
+    <div class="col-md-1">
+      <button type="button" class="btn btn-success" (click)="resumeGame(game.id)">Resume</button>
+    </div>
+
+    <div class="col-md-1">
+      <button type="button" class="btn btn-danger" (click)="forfeitGame(game.id)">Forfeit</button>
+    </div>
+    <div class="dropdown-divider"></div>
+  </div>

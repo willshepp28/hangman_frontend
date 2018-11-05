@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SavedGamesService {
 
-   private url = "https://localhost:3000/api/v1/game-saved/";
+   private url = "http://localhost:3000/api/v1/game-saved/";
    private url2 = "https://hangman-backend.herokuapp.com/api/v1/game-saved/";
 
   constructor(
