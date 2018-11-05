@@ -15,6 +15,7 @@ import { GameComponent } from "./game/game.component";
 import { AccountComponent } from "./account/account.component";
 import { WonComponent } from "./game/won/won/won.component";
 import { LossComponent } from "./game/loss/loss/loss.component";
+import { SavedGamesComponent } from "./saved-games/saved-games.component";
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
             { path: "lost", component: LossComponent}
         ]
     },
+    { path: "saved-games", component: SavedGamesComponent, canActivate: [AuthGuard]},
     { path: "account/:id", component: AccountComponent, canActivate: [AuthGuard] }
 ];
 
