@@ -21,4 +21,14 @@ export class SavedGamesService {
   getSavedGames() {
     return this.http.get<any>(this.url);
   }
+
+/*
+|--------------------------------------------------------------------------
+| POST - used when users want to forfeit a game
+|--------------------------------------------------------------------------
+*/
+// postForfeitGame(gameId){
+//   return this.http.post<any>(this.url + `forfeit/${gameId}`);
+// }
+
 }

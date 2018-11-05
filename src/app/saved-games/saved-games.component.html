@@ -6,9 +6,9 @@
   </div>
 
 
-  <div class="row ml-4 mb-4" *ngFor="let game of games">
+  <div class="row ml-4 mb-4" *ngFor="let game of games; let i = index">
     <div class="col-md-4">
-      <p><strong class="mr-2">Matchs: </strong>{{game.matchs}} <strong class="ml-5 mr-2">Attempts: </strong>{{game.attempts}} </p>
+      <p>{{i + 1}}. <strong class="ml-4 mr-2">Matchs: </strong>{{game.matchs}} <strong class="ml-5 mr-2">Attempts: </strong>{{game.attempts}} </p>
     </div>
 
     <div class="col-md-1">

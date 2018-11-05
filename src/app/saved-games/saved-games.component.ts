@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SavedGamesService } from '../core/services/game/saved-games/saved-games.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-saved-games',
@@ -11,7 +12,8 @@ export class SavedGamesComponent implements OnInit {
   games = [];
 
   constructor(
-    private savedGameService: SavedGamesService
+    private savedGameService: SavedGamesService,
+    private route: Router
   ) { }
 
   ngOnInit() {
@@ -24,7 +26,7 @@ export class SavedGamesComponent implements OnInit {
 
 
   resumeGame(id){
-    console.log(id);
+    this.route.navigate([`game/${id}`]);
   }
 
 
