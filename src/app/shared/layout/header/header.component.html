@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg nav-hangmanBlue nav-alt ">
+  <a routerLink="/home"><h1 class="navbar-brand hangman-logo">Hangman</h1></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="ml-auto" id="navbarNavAltMarkup">
+
+     <!-- Shows if user is loggin in -->
+    <div *ngIf="isAuthenticated" class="navbar-nav ml-auto d-flex flex-row flex-nowrap ">
+          <a routerLink="/home" ><li class="nav_text nav-link">Home</li></a>
+          <li class="nav_text nav-link"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+          <a routerLink="/account/getId()"><li class="nav_text nav-link">Account</li></a>
+          <li class="nav_text nav-link"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+          <a routerLink="#" (click)="logOut()"><li class="nav_text nav-link">LogOut</li></a>
+    </div>
+
+    <!-- Shows if user isnt loggin in -->
+    <div *ngIf="!isAuthenticated" class="navbar-nav ml-auto">
+
+          <a routerLink="/login" ><li class="nav_text nav-link">Login </li></a>
+          <li class="nav_text nav-link"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+          <a routerLink="/signup"><li class="nav_text nav-link">Signup</li></a>
+    </div>
+  </div>
+</nav>

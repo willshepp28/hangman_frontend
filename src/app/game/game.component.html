@@ -1,27 +1,21 @@
 <div class="container d-flex flex-column align-items-center justify-content-center">
 
+    <!-- Hangman Game Display -->
     <div class="row mt-5">
         <app-hangman-display [attempts]="attempts"></app-hangman-display>
     </div>
 
-    <!--  area for Hangmn display -->
-    <!-- <div class="row hangman-display mt-5" >
-        <div class="col-md-12 h">
-           <img src="{{hangManImage}}" alt="hangman image" > 
-        </div>
-    </div> -->
 
 
+    <!-- Displays Users Correct Matchs -->
     <div class="row d-flex flex-row justify-content-center flex-nowrap" style="text-align:center; width: 40vw;">
         <div class="col-md wordmatch-container wordmatch-display mt-15 mb-20 flex-nowrap">
             <span>{{matchs}}</span>
         </div>
-        <!-- 
-    <div class="col-md-12 attempts-container">
-        <small  class="form-text text-muted">Attempts: 0</small>
-     </div> -->
     </div>
 
+
+<!-- This only shows if the game is over -->
     <div class="row" *ngIf="gameOver">
         <div class="col-md-12" style="text-align:center" *ngIf="status === 'won'">
             <app-won></app-won>
@@ -32,6 +26,9 @@
             </div>
     </div>
 
+
+
+<!-- This is the input where users guess a letter -->
     <div class="row" *ngIf="!gameOver">
         <div class="col-md-12" style="text-align:center">
             <form [formGroup]="wordForm" (ngSubmit)="onSubmit()">
@@ -50,6 +47,10 @@
         </div>
     </div>
 
+    
+
+
+    <!-- This shows the users attempts -->
     <div class="row mt-5">
         <div class="col-md-12 attempts-container">
             <small class="form-text text-muted"><span class="red">Attempts:</span> {{attempts}}</small>
