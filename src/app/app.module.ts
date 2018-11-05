@@ -42,6 +42,8 @@ import { VideoPlayerService } from './core/helpers/video-player/video-player.ser
 import { SetvideoTimeService } from './core/helpers/setvideo-time/setvideo-time.service';
 import { HangmanDisplayComponent } from './game/hangman-display/hangman-display.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
+import { SavedGamesComponent } from './saved-games/saved-games.component';
+import { SavedGamesService } from './core/services/game/saved-games/saved-games.service';
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { HeaderComponent } from './shared/layout/header/header.component';
     WonComponent,
     LossComponent,
     HangmanDisplayComponent,
-    HeaderComponent
+    HeaderComponent,
+    SavedGamesComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ import { HeaderComponent } from './shared/layout/header/header.component';
     GameStatisticsService,
     VideoPlayerService,
     SetvideoTimeService,
+    SavedGamesService,
      {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
