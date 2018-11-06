@@ -26,18 +26,36 @@ export class SavedGamesComponent implements OnInit {
       );
   }
 
-
+/*
+|--------------------------------------------------------------------------
+| Lets user resume a game where they left off
+|--------------------------------------------------------------------------
+*/
   resumeGame(gameId){
     this.route.navigate([`game/${gameId}`]);
   }
 
 
 
+
+/*
+|--------------------------------------------------------------------------
+| Lets user forfeit a game, that they havent completed yet.
+|--------------------------------------------------------------------------
+*/
   forfeitGame(gameId){
     console.log(gameId);
     this.sequenceService.playerLost({id: gameId})
       .subscribe(
-        response => { console.log(response);},
+        data => {
+
+          // update the saved games
+          this.savedGameService.getSavedGames()
+          .subscribe(
+            response => { console.log(response); this.games = response;},
+            error => { console.log(error);}
+          );
+        },
         error => {console.log(error);}
       );
   }
