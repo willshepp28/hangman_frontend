@@ -10,8 +10,8 @@ export class AuthService {
 
 
 
-  // private url = "https://hangman-backend.herokuapp.com/api/v1/";
-  private url = "http://localhost:3000/api/v1/";
+   private url = "https://hangman-backend.herokuapp.com/api/v1/";
+  // private url = "http://localhost:3000/api/v1/";
 
   constructor(private http: HttpClient, private router: Router) { }
 
